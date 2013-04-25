@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_filter :authenticate_user!, :only => :delete
+  before_filter :authenticate_user!#, :only => :delete
   
   # GET /tickets
   # GET /tickets.json
