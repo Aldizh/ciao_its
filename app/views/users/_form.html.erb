@@ -15,6 +15,11 @@
     <%= f.text_field :name%>
   </div>
   <div class="field">
+    <%= f.label :is_admin %>
+    <% tf = { 'True'=>true, 'False'=>false } %>
+    <%= f.select :is_admin, tf %>
+  </div>
+  <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
