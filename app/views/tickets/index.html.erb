@@ -2,6 +2,8 @@
   <h1>
     List of tickets
     <%= bootstrap_icon_link_to 'New Ticket', new_ticket_path, "icon-plus icon-white", :class => "btn btn-success" %>
+    <% user = (User.find_by_id(current_user)).id %>
+    <%= bootstrap_icon_link_to "Edit Your Info", edit_user_path(user), "icon-pencil icon-white", :class => "btn btn-small btn-primary" %>
   </h1>
 </div>
 

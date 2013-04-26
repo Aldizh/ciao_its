@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :verify_is_admin
+  before_filter :verify_is_admin, :except => [:edit, :update]
 
 
   # GET /users
@@ -55,6 +55,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to users_url, notice: 'User was successfully updated.' }
+        #format.html { redirect_to root_path, notice: 'User was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
