@@ -17,4 +17,6 @@ class User < ActiveRecord::Base
   def is_associated?
     tickets.count > 0
   end
+
+  
 end
