@@ -26,11 +26,9 @@
     <%= f.label :category_id %>
     <%= f.select :category_id, Category.order("name ASC").map { |c| [c.name, c.id] }, :include_blank => true %>
   </div>
-  <div class="field" style="display: none;">
-    <%="Ticket Status:" %>
-    <% if user_signed_in? %>
-          <%= f.text_field :ticket_status_id, :value => (Ticket.find_by_user_id(current_user)).id %>
-    <%end%>
+   <div class="field">
+    <%= f.label :ticket_status_id %>
+    <%= f.select :ticket_status_id, TicketStatus.order("position ASC").map { |c| [c.name, c.id] }, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :title %>
