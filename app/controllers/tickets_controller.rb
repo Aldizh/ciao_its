@@ -5,7 +5,6 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     @tickets = Ticket.includes(:category, :user, :ticket_status)
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tickets }

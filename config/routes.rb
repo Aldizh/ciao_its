@@ -6,7 +6,9 @@ SimpleTicket::Application.routes.draw do
   resources :users
 
   resources :tickets
-  
+
+  resources :comments
+
   root :to => 'tickets#index'
 
   # The priority is based upon order of creation:

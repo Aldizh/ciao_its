@@ -32,5 +32,11 @@
       <td class="top"><b>Description:</b></td>
       <td><%= RedCloth.new(@ticket.description).to_html.html_safe %></td>
     </tr>
+    <tr>
+    <div class="field">
+      <td><%= "Comments:"%></td>
+      <td><%= link_to 'Add/List comments', "/comments", :class => "btn" %></td>
+    </div>
+    </tr>
   </tbody>
 </table>
