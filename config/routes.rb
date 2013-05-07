@@ -5,9 +5,13 @@ SimpleTicket::Application.routes.draw do
 
   resources :users
 
+  get "comments/ticket_comments"
+
   resources :tickets
 
   resources :comments
+
+
 
   root :to => 'tickets#index'
 

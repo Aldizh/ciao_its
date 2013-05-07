@@ -15,7 +15,8 @@ class TicketsController < ApplicationController
   # GET /tickets/1.json
   def show
     @ticket = Ticket.find(params[:id])
-
+    session[:ticket_id] = @ticket.id
+    @ticket_comments = Comment.find_all_by_ticket_id(@ticket.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @ticket }
