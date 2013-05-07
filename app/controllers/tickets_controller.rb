@@ -45,6 +45,9 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(params[:ticket])
 
+    # when ticket is create then send the email
+    TicketMailer.new_ticket_notification(@ticket).deliver
+
     respond_to do |format|
       if @ticket.save
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
