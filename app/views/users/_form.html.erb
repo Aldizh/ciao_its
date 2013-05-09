@@ -18,7 +18,7 @@
     <% this_user = (User.find_by_id(current_user))%>
     <% if this_user.is_admin %>
       <%= f.label :is_admin %>
-      <% tf = { 'True'=>true, 'False'=>false } %>
+      <% tf = {'False'=>false, 'True'=>true } %>
       <%= f.select :is_admin, tf %>
     <% end %>
   </div>
