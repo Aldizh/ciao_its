@@ -26,24 +26,6 @@ Rails. You can read more about Action Pack in
 link:files/vendor/rails/actionpack/README.html.
 
 
-== Getting Started
-
-1. At the command prompt, create a new Rails application:
-       <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)
-
-2. Change directory to <tt>myapp</tt> and start the web server:
-       <tt>cd myapp; rails server</tt> (run with --help for options)
-
-3. Go to http://localhost:3000/ and you'll see:
-       "Welcome aboard: You're riding Ruby on Rails!"
-
-4. Follow the guidelines to start developing your application. You can find
-the following resources handy:
-
-* The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
-* Ruby on Rails Tutorial Book: http://www.railstutorial.org/
-
-
 == Debugging Rails
 
 Sometimes your application goes wrong. Fortunately there are a lot of tools that
@@ -259,3 +241,13 @@ vendor
   External libraries that the application depends on. Also includes the plugins
   subdirectory. If the app has frozen rails, those gems also go here, under
   vendor/rails/. This directory is in the load path.
+
+How to deploy with heroku:
+1. heroku create #this will create an application
+2. git remote -v #this will check the remote branches on heroku
+3. heroku git:remote -a falling-wind-1624 #only do if you have a repo that is not associated already with the app
+4. git push heroku master #do this to deploy the code
+5. heroku apps:rename "newname" #change the name while in the old app
+6. heroku run rake db:migrate #will migrate the database
+7. heroku run rake db:seed #seed in the data
+8. heroku run rake db:reset or db:drop #if you need to reset the database
