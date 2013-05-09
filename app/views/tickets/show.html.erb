@@ -35,5 +35,9 @@
   </tbody>
 </table>
 <div class="field">
-  <%= link_to 'See comments for this ticket', "/comments/ticket_comments", :class => "btn" %>
+  <% if @ticket.comments.count == 0 %>
+    <%= link_to "No comments yet. Add comments to this ticket", "/comments/ticket_comments", :class => "btn" %>
+  <% else %>
+    <%= link_to "#{@ticket.comments.count} comments to read or you can add more comments", "/comments/ticket_comments/", :class => "btn" %>
+  <% end %>
 </div>

@@ -16,7 +16,7 @@
         </div>
     <%end%>
     <div style="display: none;">
-      <%= f.text_field :ticket_id, :value => (1) %>
+      <%= f.text_field :ticket_id, :value => (session[:ticket_id]) %>
     </div>
     <div class="field">
       <%="Comment Submitted by:" %>
