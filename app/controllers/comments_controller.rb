@@ -48,8 +48,6 @@ class CommentsController < ApplicationController
   # POST /tickets.json
   def create
     @comment = Comment.new(params[:comment])
-    puts "THIS IS COMMENT TO SEE CREATE"
-    puts @comment
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
@@ -87,5 +85,10 @@ class CommentsController < ApplicationController
       format.html { redirect_to comments_url }
       format.json { head :ok }
     end
+  end
+
+  def count
+    @ticket = Ticket.find(params[:ticket_id])
+    @comment = @ticket.comments.count(params[:comment])
   end
 end
