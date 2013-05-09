@@ -6,7 +6,8 @@ SimpleTicket::Application.routes.draw do
   resources :users
 
   get "comments/ticket_comments"
-
+  get "tickets/own_it"
+  post "tickets/own_it"
   resources :tickets
 
   resources :comments

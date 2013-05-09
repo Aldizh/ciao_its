@@ -16,6 +16,7 @@ class TicketsController < ApplicationController
   def show
     @ticket = Ticket.find(params[:id])
     session[:ticket_id] = @ticket.id
+    session[:curr_user] = @ticket.user.name
     @ticket_comments = Comment.find_all_by_ticket_id(@ticket.id)
     respond_to do |format|
       format.html # show.html.erb
@@ -85,5 +86,12 @@ class TicketsController < ApplicationController
       format.html { redirect_to tickets_url }
       format.json { head :ok }
     end
+  end
+  def own_it
+    @ticket = Ticket.find(session[:ticket_id])
+    @ticket.owner = User.find_by_id(current_user).name
+    # pull the username based on who is logged in... not from ticket
+    @ticket.save
+    redirect_to "/tickets/#{session[:ticket_id]}"
   end
 end

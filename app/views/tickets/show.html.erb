@@ -32,6 +32,22 @@
       <td class="top"><b>Description:</b></td>
       <td><%= RedCloth.new(@ticket.description).to_html.html_safe %></td>
     </tr>
+    <% if user_signed_in? and current_user.is_admin %>
+      <% if @ticket.ticket_status.name.upcase == "OPEN" and @ticket.owner.to_s == "" %>
+        <td> <%= form_tag :action => "own_it" do %>
+             <%= submit_tag "Own it" %>
+             <% end %>
+        </td>
+      <% elsif @ticket.owner.to_s != "" %>
+        <td><%=  "Ticket Owner:" +  @ticket.owner %></td>
+      <% end %>
+    <% end %>
+    <% if user_signed_in? and not current_user.is_admin and @ticket.owner.to_s != "" %>
+      <td><%=  "Ticket Owner:" +  session[:curr_user] %></td>
+    <% end %>
+    <% if user_signed_in? and not current_user.is_admin and @ticket.owner.to_s == "" %>
+      <td><%=  "No body is currently working on this ticket" %></td>
+  <% end %>
   </tbody>
 </table>
 <div class="field">
