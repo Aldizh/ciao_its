@@ -6,3 +6,24 @@
  *= require twitter/bootstrap
  *= require_tree . 
 */
+
+.extra_navs {
+	text-align: left;
+	margin: 0;
+	padding: 0 0 0 75px;
+	background: #CCC;
+	height: 50px;
+}
+.extra_navs .my-nav a {
+  color: #900;
+  display: inline-block;
+  padding-right: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+
+}
+
+.extra_navs .my-nav a:hover {
+	color: red;
+	text-decoration: none;
+}
