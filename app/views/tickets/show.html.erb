@@ -13,7 +13,7 @@
 <table class="table table-striped table-bordered table-condensed">
   <tbody>
     <tr>
-      <td class="top"><b>Status:</b></td>
+      <td class="top" width=150><b>Status:</b></td>
       <td><%= ticket_status_label @ticket.ticket_status.name %></td>
     </tr>
     <tr>
@@ -39,13 +39,22 @@
              <% end %>
         </td>
       <% elsif @ticket.owner.to_s != "" %>
-        <td><%=  "Ticket Owner:" +  @ticket.owner %></td>
+        <td class="top"><b>Ticket Owner:</b></td>
+        <td>
+          <%= @ticket.owner %>
+          <%= form_tag :action => "own_it" do %>
+            <br>
+            <%= submit_tag "Take over ownership", :class => "btn btn-primary"%>
+          <% end %>
+        </td>
       <% end %>
     <% end %>
     <% if user_signed_in? and not current_user.is_admin and @ticket.owner.to_s != "" %>
-      <td><%=  "Ticket Owner:" +  session[:curr_user] %></td>
+      <td class="top"><b>Ticket Owner:</b></td>
+      <td><%=session[:curr_user] %></td>
     <% end %>
     <% if user_signed_in? and not current_user.is_admin and @ticket.owner.to_s == "" %>
+      <td class="top"><b>Ticket Owner:</b></td>
       <td><%=  "No body is currently working on this ticket" %></td>
   <% end %>
   </tbody>
@@ -53,7 +62,9 @@
 <div class="field">
   <% if @ticket.comments.count == 0 %>
     <%= link_to "No comments yet. Add comments to this ticket", "/comments/ticket_comments", :class => "btn" %>
+  <% elsif @ticket.comments.count == 1 %>
+    <%= link_to "1 comment to read. Click to View/Add more comments", "/comments/ticket_comments/", :class => "btn" %>
   <% else %>
-    <%= link_to "#{@ticket.comments.count} comments to read or you can add more comments", "/comments/ticket_comments/", :class => "btn" %>
+    <%= link_to "#{@ticket.comments.count} comments to read. Click to View/Add more comments", "/comments/ticket_comments/", :class => "btn" %>
   <% end %>
 </div>
