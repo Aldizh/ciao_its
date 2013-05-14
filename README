@@ -251,3 +251,4 @@ How to deploy with heroku:
 6. heroku run rake db:migrate #will migrate the database
 7. heroku run rake db:seed #seed in the data
 8. heroku run rake db:reset or db:drop #if you need to reset the database
+9. ***** heroku rake db:schema:load #very important if you change the schema 
