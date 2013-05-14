@@ -32,7 +32,7 @@ class HowtosController < ApplicationController
     @howto = Howto.new(params[:howto])
     respond_to do |format|
       if @howto.save
-        format.html { redirect_to @howto, notice: 'Comment was successfully created.' }
+        format.html { redirect_to :controller => 'howtos', :action  => 'index'}
         format.json { render json: @howto, status: :created, location: @howto }
       else
         format.html { render action: "new" }
