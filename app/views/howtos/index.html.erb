@@ -5,23 +5,20 @@
       <%= bootstrap_icon_link_to 'Add new', new_howto_path, "icon-plus icon-white", :class => "btn btn-success" %>
     <% end %>
   </h1>
+
 </div>
 
 <%= show_flash %>
 
-<table class="table table-striped table-bordered table-condensed">
-  <tbody>
-  <% @howtos.each do |howto| %>
-      <tr>
-        <td width=180><p style='padding: 0 20px; font-weight: bold;'><%= howto.title %></p></td>
-        <td><p style='padding:5px 20px;'><%= howto.description %></p></td>
-        <% if user_signed_in? and current_user.is_admin %>
-        <td width=180 style='text-align: center;'>
-              <%= bootstrap_icon_link_to 'Delete', howto, "icon-trash icon-white", confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %>
-              <%= bootstrap_icon_link_to 'Edit', edit_howto_path(howto), "icon-pencil icon-white", :class => "btn btn-primary" %>
-        </td>
+<% @howtos.each do |howto| %>
+  <div>
+        <h4 style="width:600px; float: left; text-transform: uppercase;"><p style='padding: 0 20px; font-weight: bold;'><%= howto.title %></h4>
+          <% if user_signed_in? and current_user.is_admin %>
+          <div style="text-align:right; margin-bottom: 5px;">
+          <%= bootstrap_icon_link_to 'Delete', howto, "icon-trash icon-white", confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %>
+          <%= bootstrap_icon_link_to 'Edit', edit_howto_path(howto), "icon-pencil icon-white", :class => "btn btn-primary" %>
+          </div>
+        <p style='padding:15px; background-color: #EBE9CC; margin-bottom: 20px;'><%= howto.description %> </p>
         <% end %>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+  </div>
+<% end %>

@@ -90,6 +90,7 @@ class TicketsController < ApplicationController
   def own_it
     @ticket = Ticket.find(session[:ticket_id])
     @ticket.owner = User.find_by_id(current_user).name
+    TicketMailer.ownership_notification(@ticket).deliver
     # pull the username based on who is logged in... not from ticket
     @ticket.save
     redirect_to "/tickets/#{session[:ticket_id]}"
