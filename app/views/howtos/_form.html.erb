@@ -1,0 +1,32 @@
+<%= form_for(@howto) do |f| %>
+    <% if @howto.errors.any? %>
+        <div class="alert alert-error">
+          <b><%= pluralize(@howto.errors.count, "error") %> prohibited this howto from being saved:</b>
+
+          <ul>
+            <% @howto.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, :class => "span5" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, :class => "span5" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit :class => "btn btn-success" %><br />
+      <% if @howto.id %>
+          <%= link_to 'Cancel', @howto, :class => "btn" %>
+      <% else %>
+          <%= link_to 'Cancel', howtos_path %>
+      <% end %>
+    </div>
+<% end %>

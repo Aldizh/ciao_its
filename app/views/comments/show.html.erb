@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>
+    Comment Details
+    <% if user_signed_in? %>
+        <%= bootstrap_icon_link_to 'Delete', @comment, "icon-trash icon-white", confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %>
+    <% end %>
+    <% if user_signed_in?%>
+        <%= bootstrap_icon_link_to 'Edit', edit_comment_path(@comment), "icon-pencil icon-white", :class => "btn btn-primary" %>
+    <% end %>
+  </h1>
+</div>
+
+
+<table class="table table-striped table-bordered table-condensed">
+  <tbody>
+  <tr>
+    <td class="top"><b>Comment by:</b></td>
+    <td><%= @comment.user.name %></td>
+  </tr>
+  <tr>
+    <td class="top"><b>Title:</b></td>
+    <td><%= @comment.title %></td>
+  </tr>
+  <tr>
+    <td class="top"><b>Ticket it belongs to:</b></td>
+    <td><%= @comment.ticket.title %></td>
+  </tr>
+  <tr>
+    <td class="top"><b>Description:</b></td>
+    <td><%= RedCloth.new(@comment.description).to_html.html_safe %></td>
+  </tr>
+  </tbody>
+</table>
