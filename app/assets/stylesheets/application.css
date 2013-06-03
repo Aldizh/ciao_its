@@ -36,3 +36,8 @@ p {
 	padding: 20px;
 	margin-top: 20px;
 }
+.version_num {
+	font-size: 12px;
+	text-transform: lowercase;
+	font-style: italic;
+}
