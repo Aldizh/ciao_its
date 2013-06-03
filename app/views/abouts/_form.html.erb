@@ -1,0 +1,28 @@
+   <%= form_for(@about) do |f| %>
+    <% if @about.errors.any? %>
+        <div class="alert alert-error">
+          <b><%= pluralize(@about.errors.count, "error") %> prohibited this howto from being saved:</b>
+
+          <ul>
+            <% @about.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, :class => "span5" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit :class => "btn btn-success" %><br />
+      <% if @about.id %>
+          <%= link_to 'Cancel', @about, :class => "btn" %>
+      <% else %>
+          <%= link_to 'Cancel', abouts_path %>
+      <% end %>
+    </div>
+<% end %>
