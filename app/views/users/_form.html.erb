@@ -11,7 +11,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :name %><%= mark_required(@user, :name) %>
     <%= f.text_field :name%>
   </div>
   <div class="field">
@@ -23,7 +23,7 @@
     <% end %>
   </div>
   <div class="field">
-    <%= f.label :email %>
+    <%= f.label :email %><%= mark_required(@user, :email) %>
     <%= f.text_field :email %>
   </div>
   <div class="field">

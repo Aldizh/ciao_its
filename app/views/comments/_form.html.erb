@@ -27,8 +27,8 @@
     </div>
 
     <div class="field">
-      <%= f.label :description %>
-      <%= f.text_area :description, :class => "span5" %>
+      <%= f.label :description %><%= mark_required(@ticket, :title) %>
+      <%= f.text_area :description, :class => "span5" %><%= mark_required(@comment, :description) %>
     </div>
     <div class="field">
       <%= f.label :commenter %>

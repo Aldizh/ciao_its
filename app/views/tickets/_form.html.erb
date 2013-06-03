@@ -23,7 +23,7 @@
     <!-- = f.select :user_id, User.order("name ASC").map { |c| [c.name, c.id] }, :include_blank => true -->
   </div>
   <div class="field">
-    <%= f.label :category_id %>
+    <%= f.label :category_id %><%= mark_required(@ticket, :category_id) %>
     <%= f.select :category_id, Category.order("name ASC").map { |c| [c.name, c.id] }, :include_blank => true %>
   </div>
    <div class="field">
@@ -31,11 +31,11 @@
     <%= f.select :ticket_status_id, TicketStatus.order("position ASC").map { |c| [c.name, c.id] }, :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :title %>
+    <%= f.label :title%><%= mark_required(@ticket, :title) %>
     <%= f.text_field :title, :class => "span5" %>
   </div>
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label :description %><%= mark_required(@ticket, :description) %>
     <%= f.text_area :description, :class => "span5" %>
   </div>
 

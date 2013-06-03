@@ -12,12 +12,12 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :title %>
+      <%= f.label :title %><%= mark_required(@howto, :title) %>
       <%= f.text_field :title, :class => "span5" %>
     </div>
 
     <div class="field">
-      <%= f.label :description %>
+      <%= f.label :description %><%= mark_required(@howto, :description) %>
       <%= f.text_area :description, :class => "span5" %>
     </div>
 
