@@ -14,11 +14,12 @@
   <div>
         <h4 style="width:600px; float: left; text-transform: uppercase;"><p style='padding: 0 20px; font-weight: bold;'><%= howto.title %></h4>
           <% if user_signed_in? and current_user.is_admin %>
-          <div style="text-align:right; margin-bottom: 5px;">
-          <%= bootstrap_icon_link_to 'Delete', howto, "icon-trash icon-white", confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %>
-          <%= bootstrap_icon_link_to 'Edit', edit_howto_path(howto), "icon-pencil icon-white", :class => "btn btn-primary" %>
-          </div>
-        <p style='padding:15px; background-color: #EBE9CC; margin-bottom: 20px;'><%= howto.description %> </p>
-        <% end %>
+            <div style="text-align:right; margin-bottom: 5px;">
+              <%= bootstrap_icon_link_to 'Delete', howto, "icon-trash icon-white", confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %>
+              <%= bootstrap_icon_link_to 'Edit', edit_howto_path(howto), "icon-pencil icon-white", :class => "btn btn-primary" %>
+            </div>
+          <% end %>
+        <p style='padding:15px; background-color: #EBE9CC; margin-bottom: 20px; clear:left;'><%= howto.description %> </p>
+        
   </div>
 <% end %>
