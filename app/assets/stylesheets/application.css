@@ -30,3 +30,9 @@
 p {
 	text-align:justify;
 }
+.contact_address {
+	border: 1px solid #CCCCCC;
+	width: fit-content;
+	padding: 20px;
+	margin-top: 20px;
+}
