@@ -9,3 +9,15 @@ How to deploy with heroku:
 8. heroku run rake db:reset or db:drop #if you need to reset the database
 9. ***** heroku rake db:schema:load #very important if you change the schema
 10.***** heroku config:add DATABASE_URL=mysql2://resell:ciaouser@209.200.231.9:3306/voipswitch #remote configuration
+====================================================================================================================
+Addin and removing remote repos connected to your local app
+git
+---
+git remote rm origin
+git remote add origin <github_link>
+heroku
+------
+git remote rm heroku
+git remote add origin <URL to new heroku app>
+git remote -v #to view the status
+
