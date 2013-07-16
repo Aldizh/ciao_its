@@ -1,6 +1,8 @@
 SimpleTicket::Application.routes.draw do
   devise_for :users
 
+  get "contact_us/index"
+  
   resources :categories
 
   resources :users
