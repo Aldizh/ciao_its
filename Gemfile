@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'therubyracer'
+gem 'less-rails'
 gem 'rails', '3.1.1'
 gem 'jquery-rails'
 gem 'devise'
@@ -7,7 +9,7 @@ gem 'twitter-bootstrap-rails'
 gem 'RedCloth'
 
 group :production do
-  gem 'pg'
+  gem 'sqlite3'
 end
 
 group :development do
